@@ -4,8 +4,7 @@ jobs:
   printti:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo my name
-        run: |
+      - run: |
           echo "Santeri
           pwd
         
