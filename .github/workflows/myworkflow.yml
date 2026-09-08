@@ -1,5 +1,5 @@
 name: My workflow test
-on: workflow_dispatch
+on: [workflow_dispatch, push]
 jobs:
   printti:
     runs-on: ubuntu-latest
