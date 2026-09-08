@@ -1,0 +1,8 @@
+name: My workflow test
+on: workflow_dispatch
+jobs:
+  printti:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "*** HEIPPA ***"
+  
