@@ -17,10 +17,10 @@ jobs:
       - name: contents
         run: |
           echo "juurikansion sisältö"
-          ls la
+          ls -la
 
           echo "backup sisältä:
-          ls la backup
+          ls -la backup
 
           echo "info.txt sisältö"
           cat info.txt
