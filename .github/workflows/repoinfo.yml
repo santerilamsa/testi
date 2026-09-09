@@ -12,5 +12,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Show repo files
-        run: ls -la
+      - name: Create commits.txt
+        run: |
+          touch commits.txt
