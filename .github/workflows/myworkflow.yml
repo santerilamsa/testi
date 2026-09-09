@@ -5,9 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: filecreation
-      run: |
-        touch info.txt 
-        echo "Hello"
+        run: |
+          touch info.txt 
+          echo "Hello"
         
          
         
