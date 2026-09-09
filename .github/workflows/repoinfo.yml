@@ -22,3 +22,12 @@ jobs:
       - name: Print commits.txt
         run: |
           cat commits.txt
+
+
+      - name: Checkout tag 1.0
+        uses: actions/checkout@v4
+        with:
+          ref: 1.0
+
+      - name: Print README
+        run: cat README.md
