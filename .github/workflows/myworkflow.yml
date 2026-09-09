@@ -10,11 +10,10 @@ jobs:
         run: |
           touch info.txt 
           echo "Hello" > info.txt
-
-          - name: backup
-            run |
-              mkdir backup
-              cp info.txt backup/
+      - name: backup
+        run: |
+          mkdir backup
+          cp info.txt backup/
 
      
         
