@@ -1,6 +1,10 @@
 name: files
 
-on: [workflow_dispatch]
+on:
+  issues:
+    types: opened
+  workflow_dispatch:
+  
 
 jobs:
   files:
