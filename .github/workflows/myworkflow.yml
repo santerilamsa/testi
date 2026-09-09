@@ -25,12 +25,13 @@ jobs:
           echo "info.txt sisältö"
           cat info.txt
 
-          
+  yesno:
+    runs-on: ubuntu-latest
 
-     
+    steps:
+      - name: yesno
+        run: |
+          curl https://yesno.wtf/api
         
-         
-        
-        
-          
+
   
