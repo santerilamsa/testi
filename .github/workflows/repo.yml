@@ -1,11 +1,14 @@
 name: Checkout repo
-on: workflow_dispatch
+
+on:
+  workflow_dispatch:
 
 jobs:
   repo-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@7
+        uses: actions/checkout@v4
+
       - name: Commands
         run: ls
