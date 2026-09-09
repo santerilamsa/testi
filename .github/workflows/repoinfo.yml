@@ -18,3 +18,7 @@ jobs:
 
       - name: Add commit
         run: git log > commits.txt
+
+      - name: Print commits.txt
+        run: |
+          cat commits.txt
