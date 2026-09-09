@@ -19,7 +19,7 @@ jobs:
           echo "juurikansion sisältö"
           ls -la
 
-          echo "backup sisältä:
+          echo "backup sisältä"
           ls -la backup
 
           echo "info.txt sisältö"
