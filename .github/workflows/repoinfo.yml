@@ -7,27 +7,21 @@ jobs:
   repo-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          fetch-tags: 'true'
 
-      - name: Create commits.txt
+      - name: Commands
         run: |
           touch commits.txt
+          git log --oneline > commits.txt
 
-      - name: Add commit
-        run: git log > commits.txt
-
-      - name: Print commits.txt
+      - name: Print info
+        run: cat commits.txt
+      - name: Tag print
         run: |
-          cat commits.txt
-
-
-      - name: Checkout tag 1.0
-        uses: actions/checkout@v4
-        with:
-          ref: 1.0
-
-      - name: Print README
-        run: cat README.md
+          git tag
+          git checkout 1.0
+          cat README.md
+        
