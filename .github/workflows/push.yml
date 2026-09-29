@@ -21,3 +21,7 @@ jobs:
       - name: Print app information
         run: |
           echo "Your app name is $APP_NAME and version is $APP_VERSION"
+
+      - name: Add line to log
+        run: |
+          echo "${{vars.LOG_PREFIX}} Push implemented" >> log.txt
