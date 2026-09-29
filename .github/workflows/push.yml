@@ -25,3 +25,16 @@ jobs:
       - name: Add line to log
         run: |
           echo "${{vars.LOG_PREFIX}} Push implemented" >> log.txt
+
+      - name: Update psuh counter
+        run: |
+          if [ -f counter.txt ]; then
+            counter=$(cat counter.txt)
+          else
+            counter=0
+          fi
+
+          counter=$((counter+1))
+          echo "$counter > counter.txt
+
+          echo "Push count is now $counter"
