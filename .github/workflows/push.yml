@@ -35,7 +35,7 @@ jobs:
           fi
 
           counter=$((counter+1))
-          echo "$counter > counter.txt"
+          echo "$counter" > counter.txt
 
           echo "Push count is now $counter"
 
