@@ -26,7 +26,7 @@ jobs:
         run: |
           echo "${{vars.LOG_PREFIX}} Push implemented" >> log.txt
 
-      - name: Update psuh counter
+      - name: Update push counter
         run: |
           if [ -f counter.txt ]; then
             counter=$(cat counter.txt)
@@ -35,6 +35,15 @@ jobs:
           fi
 
           counter=$((counter+1))
-          echo "$counter > counter.txt
+          echo "$counter > counter.txt"
 
           echo "Push count is now $counter"
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add log.txt counter.txt
+          git commit -m "Update log and counter" || exit 0
+          git push
