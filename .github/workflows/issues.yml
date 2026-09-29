@@ -3,6 +3,8 @@ name: Issue workflow
 on:
   issues:
     types: [opened]
+  issue_comment:
+    types: [created]
 
 permissions:
   contents: write
@@ -24,11 +26,13 @@ jobs:
           echo "Assignee: $ASSIGNEE_NAME"
 
       - name: Add issue to README
+        if: github.event_name == 'issues'
         env:
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ASSIGNEE_NAME: ${{ github.event.issue.assignee.login }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
         run: |
-          echo "Issue: $ISSUE_TITLE, Assignee: $ASSIGNEE_NAME" >> README.md
+          echo "- [$ISSUE_TITLE]($ISSUE_URL) - Assignee: $ASSIGNEE_NAME" >> README.md
 
       - name: Commit README
         run: |
@@ -38,3 +42,12 @@ jobs:
           git add README.md
           git commit -m "Add issue to README" || exit 0
           git push
+
+      - name: Print issue comment
+        if: github.event_name == 'issue_comment'
+        env:
+          COMMENT: ${{ github.event.comment.body }}
+          COMMENT_AUTHOR: ${{ github.event.comment.user.login }}
+        run: |
+          echo "Comment: $COMMENT"
+          echo "Comment author: $COMMENT_AUTHOR"
