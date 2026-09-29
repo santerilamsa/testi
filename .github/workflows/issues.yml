@@ -14,3 +14,18 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Print issue information
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ASSIGNEE_NAME: ${{ github.event.issue.assignee.login }}
+        run: |
+          echo "Issue title: $ISSUE_TITLE"
+          echo "Assignee: $ASSIGNEE_NAME"
+
+      - name: Add issue to README
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ASSIGNEE_NAME: ${{ github.event.issue.assignee.login }}
+        run: |
+          echo "Issue: $ISSUE_TITLE, Assignee: $ASSIGNEE_NAME" >> README.md
